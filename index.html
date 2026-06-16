@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Almoxarifado</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+<body>
+    <div class="container">
+
+    <div class="header">
+      <div class="header-icon">📦</div>
+      <div>
+        <h1>Controle de Almoxarifado</h1>
+        <p>Registro e listagem de materiais</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">+ Cadastrar material</div>
+      <div class="form-row">
+        <div class="field">
+          <label for="input-nome">Nome do material</label>
+          <input type="text" id="input-nome" placeholder="Ex: Luva de procedimento" />
+        </div>
+        <div class="field">
+          <label for="input-quantidade">Quantidade</label>
+          <input type="number" id="input-quantidade" min="0" placeholder="0" />
+        </div>
+        <button id="btn-cadastrar">✓ Cadastrar</button>
+      </div>
+      <div class="status-bar" id="status-form"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">☰ Materiais cadastrados</div>
+      <table id="lista-materiais">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Cadastrado em</th>
+            <th>Retirar</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tbody-materiais">
+          <tr><td colspan="5" class="empty">Carregando materiais...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
