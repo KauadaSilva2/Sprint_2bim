@@ -14,12 +14,11 @@ function formatDate(str) {
   return d.toLocaleDateString('pt-BR') + ' ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 }
 
-// ─── NOVA FUNÇÃO OBRIGATÓRIA ───────────────────────────────────────────────
 /**
- * Valida se uma retirada de estoque é permitida.
- * @param {number} estoqueAtual     - Quantidade disponível no momento.
- * @param {number} quantidadeRetirada - Quantidade que se deseja retirar.
- * @returns {boolean} true se válida, false se inválida.
+ * 
+ * @param {number} estoqueAtual     
+ * @param {number} quantidadeRetirada 
+ * @returns {boolean} 
  */
 function validarRetirada(estoqueAtual, quantidadeRetirada) {
   if (quantidadeRetirada <= 0) return false;           // bloqueia zero e negativos
@@ -27,7 +26,6 @@ function validarRetirada(estoqueAtual, quantidadeRetirada) {
   return true;
 }
 
-// ─── RENDERIZAÇÃO DA TABELA ────────────────────────────────────────────────
 function renderTable(items) {
   if (!items || items.length === 0) {
     tbody.innerHTML = '<tr><td colspan="5" class="empty">Nenhum material cadastrado ainda.</td></tr>';
@@ -74,7 +72,6 @@ function renderTable(items) {
   }).join('');
 }
 
-// ─── CARREGAR MATERIAIS ────────────────────────────────────────────────────
 async function carregarMateriais() {
   try {
     const res = await fetch(API);
@@ -86,7 +83,6 @@ async function carregarMateriais() {
   }
 }
 
-// ─── CADASTRAR ─────────────────────────────────────────────────────────────
 async function cadastrar() {
   const nome = document.getElementById('input-nome').value.trim();
   const quantidade = document.getElementById('input-quantidade').value.trim();
@@ -117,7 +113,6 @@ async function cadastrar() {
   }
 }
 
-// ─── RETIRAR (PUT) ─────────────────────────────────────────────────────────
 async function retirar(id, estoqueAtual, inputEl, btnEl) {
   const quantidadeRetirada = parseInt(inputEl.value);
 
@@ -159,7 +154,6 @@ async function retirar(id, estoqueAtual, inputEl, btnEl) {
   }
 }
 
-// ─── EXCLUIR (DELETE) ──────────────────────────────────────────────────────
 async function excluir(id, btnEl) {
   if (!confirm('Tem certeza que deseja excluir este material?')) return;
 
@@ -175,7 +169,6 @@ async function excluir(id, btnEl) {
   }
 }
 
-// ─── DELEGAÇÃO DE EVENTOS NA TABELA ───────────────────────────────────────
 tbody.addEventListener('click', e => {
   // Botão Baixar
   const btnBaixar = e.target.closest('.btn-baixar');
@@ -187,14 +180,12 @@ tbody.addEventListener('click', e => {
     return;
   }
 
-  // Botão Excluir
   const btnExcluir = e.target.closest('.btn-excluir');
   if (btnExcluir) {
     excluir(btnExcluir.dataset.id, btnExcluir);
   }
 });
 
-// ─── EVENTOS DO FORMULÁRIO DE CADASTRO ────────────────────────────────────
 btnCad.addEventListener('click', cadastrar);
 document.getElementById('input-nome').addEventListener('keydown', e => {
   if (e.key === 'Enter') cadastrar();
