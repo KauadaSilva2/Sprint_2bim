@@ -1,5 +1,7 @@
 # 📦 Controle de Almoxarifado
 
+🌐 **Projeto no ar:** [cole aqui o link do GitHub Pages/Vercel depois do deploy]
+
 Sistema web de controle de estoque desenvolvido como projeto avaliativo da disciplina **Mentalidade Criativa e Empreendedora** — 3º semestre ADS.
 
 ---
@@ -10,6 +12,37 @@ Sistema web de controle de estoque desenvolvido como projeto avaliativo da disci
 - ✅ **Listar** todos os materiais cadastrados (GET)
 - ✅ **Retirar** quantidade do estoque com validação (PUT)
 - ✅ **Excluir** materiais do sistema (DELETE)
+- ✅ **Buscar** materiais pelo nome em tempo real
+- ✅ **Dashboard** com o total de itens exibidos na tabela
+- ✅ **Alerta visual** para materiais com estoque crítico (menos de 10 unidades)
+- ✅ **Tratamento de erros** de rede e da API em todas as requisições
+
+---
+
+## 🔍 Busca de Materiais
+
+O campo `id="input-busca"` filtra a tabela em tempo real (evento `input`), comparando o termo digitado com o nome de cada material, sem diferenciar maiúsculas/minúsculas.
+
+---
+
+## 📊 Dashboard de Total de Itens
+
+O elemento `id="total-itens"` mostra a quantidade de materiais exibidos na tabela no momento — atualiza automaticamente ao cadastrar, retirar, excluir ou filtrar pela busca.
+
+---
+
+## ⚠️ Alerta de Estoque Crítico
+
+Toda linha da tabela cujo material tenha **menos de 10 unidades** em estoque recebe a classe `class="estoque-critico"`, adicionada via JavaScript na função `renderTable`. Essa linha ganha destaque visual (fundo amarelo claro, borda lateral laranja e ícone ⚠️) para chamar atenção de quem está consultando o estoque.
+
+---
+
+## 🛡️ Tratamento de Erros
+
+Todas as funções que fazem `fetch` (`carregarMateriais`, `cadastrar`, `retirar`, `excluir`) possuem blocos `try/catch`, evitando que a aplicação "quebre" silenciosamente. A função `getMensagemErro` diferencia:
+
+- **Erro de conexão** (sem internet, `TypeError`) → mensagem de "sem conexão"
+- **Erro da API** (status diferente de OK) → mensagem com o código de erro
 
 ---
 
@@ -62,9 +95,25 @@ Integração com [MockAPI](https://mockapi.io/).
 | `feat: estrutura inicial` | HTML, CSS e listagem de materiais |
 | `feat: cadastro de materiais` | Formulário e integração POST |
 | `feat: add retirada (PUT) e exclusão (DELETE) de materiais` | Módulo de baixa de estoque e exclusão com validação |
+| `feat: add busca, dashboard de total e alerta de estoque crítico` | Filtro em tempo real, contador de itens e classe `estoque-critico` |
+| `fix: tratamento de erros de rede` | Diferencia erro de conexão de erro da API em todas as requisições |
+| `chore: deploy do projeto` | Publicação no GitHub Pages/Vercel |
 
 ---
 
-## ▶️ Como rodar
+## ▶️ Como rodar localmente
 
 Basta abrir o `index.html` no navegador, ou usar o Live Server do VS Code.
+
+---
+
+## 🌐 Como publicar (deploy)
+
+Forma mais rápida usando **GitHub Pages**, já que o projeto é HTML/CSS/JS puro:
+
+1. Suba o projeto para um repositório no GitHub (`git add .`, `git commit`, `git push`).
+2. No repositório, vá em **Settings → Pages**.
+3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
+4. Salve e aguarde alguns segundos — o GitHub vai gerar um link no formato:
+   `https://seu-usuario.github.io/nome-do-repositorio/`
+5. Cole esse link no topo deste README, no lugar do placeholder.
