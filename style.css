@@ -40,6 +40,44 @@ body {
 
 .card-title { font-size: 14px; font-weight: 500; color: #555; margin-bottom: 12px; }
 
+/* ── Cabeçalho do card de listagem (título + dashboard) ───── */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card-title-row .card-title { margin-bottom: 0; }
+
+.total-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #3C3489;
+  background: #EEEDFE;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── Barra de busca ─────────────────────────────────────── */
+.busca-row { margin-bottom: 12px; }
+
+#input-busca {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+#input-busca:focus {
+  border-color: #534AB7;
+  box-shadow: 0 0 0 3px rgba(83,74,183,0.1);
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 140px auto;
@@ -94,8 +132,16 @@ tbody tr:hover { background: #fafafa; }
 tbody td  { padding: 10px 12px; vertical-align: middle; }
 
 .qty-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; }
-.qty-ok  { background: #EEEDFE; color: #3C3489; }
-.qty-low { background: #FCEBEB; color: #A32D2D; }
+.qty-ok   { background: #EEEDFE; color: #3C3489; }
+.qty-warn { background: #FFF3E0; color: #E65100; }
+.qty-low  { background: #FCEBEB; color: #A32D2D; }
+
+.alerta-icone { font-size: 12px; }
+
+/* ── Alerta visual de estoque crítico (< 10 unidades) ───── */
+.estoque-critico { background: #FFFBEB; }
+.estoque-critico:hover { background: #FFF6DA; }
+.estoque-critico td:first-child { border-left: 3px solid #F9A825; }
 
 /* ── Coluna de retirada ─────────────────────────── */
 .col-retirada { min-width: 180px; }
