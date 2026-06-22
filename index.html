@@ -34,7 +34,15 @@
     </div>
 
     <div class="card">
-      <div class="card-title">☰ Materiais cadastrados</div>
+      <div class="card-title-row">
+        <div class="card-title">☰ Materiais cadastrados</div>
+        <div class="total-badge">Total: <span id="total-itens">0</span> itens</div>
+      </div>
+
+      <div class="busca-row">
+        <input type="text" id="input-busca" placeholder="🔍 Buscar material pelo nome..." />
+      </div>
+
       <table id="lista-materiais">
         <thead>
           <tr>
