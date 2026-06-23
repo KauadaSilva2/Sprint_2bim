@@ -1,6 +1,6 @@
 # 📦 Controle de Almoxarifado
 
-🌐 **Projeto no ar:** [cole aqui o link do GitHub Pages/Vercel depois do deploy]
+🌐 **Projeto no ar: https://kauadasilva2.github.io/Sprint_2bim/
 
 Sistema web de controle de estoque desenvolvido como projeto avaliativo da disciplina **Mentalidade Criativa e Empreendedora** — 3º semestre ADS.
 
