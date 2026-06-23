@@ -98,22 +98,3 @@ Integração com [MockAPI](https://mockapi.io/).
 | `feat: add busca, dashboard de total e alerta de estoque crítico` | Filtro em tempo real, contador de itens e classe `estoque-critico` |
 | `fix: tratamento de erros de rede` | Diferencia erro de conexão de erro da API em todas as requisições |
 | `chore: deploy do projeto` | Publicação no GitHub Pages/Vercel |
-
----
-
-## ▶️ Como rodar localmente
-
-Basta abrir o `index.html` no navegador, ou usar o Live Server do VS Code.
-
----
-
-## 🌐 Como publicar (deploy)
-
-Forma mais rápida usando **GitHub Pages**, já que o projeto é HTML/CSS/JS puro:
-
-1. Suba o projeto para um repositório no GitHub (`git add .`, `git commit`, `git push`).
-2. No repositório, vá em **Settings → Pages**.
-3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
-4. Salve e aguarde alguns segundos — o GitHub vai gerar um link no formato:
-   `https://seu-usuario.github.io/nome-do-repositorio/`
-5. Cole esse link no topo deste README, no lugar do placeholder.
